@@ -27,3 +27,8 @@
     box-shadow: 2px 2px 5px 0px rgba(131, 131, 131, 1);
   }
 }
+@media screen and (max-width: 768px) {
+  .user_card {
+    width: calc((100% - 20px) / 2);
+  }
+}

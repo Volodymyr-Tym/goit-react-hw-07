@@ -1,7 +1,8 @@
 import { ImSearch } from 'react-icons/im';
 
-import { selectNameFilter, changeFilter } from '../../redux/filtersSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectNameFilter } from '../../redux/selectors';
+import { changeFilter } from '../../redux/filtersSlice';
 
 import styles from './SearchBox.module.css';
 
@@ -17,9 +18,7 @@ const SearchBox = () => {
   return (
     <div>
       <label className={styles.label}>
-        <span className={styles.label_title}>
-          Find contacts by name or number
-        </span>
+        <span className={styles.label_title}>Find contacts by name</span>
 
         <input
           onChange={event => {

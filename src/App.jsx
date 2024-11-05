@@ -2,10 +2,26 @@ import Section from './components/Section/Section';
 import ContactForm from './components/ContactForm/ContactForm';
 import SearchBox from './components/SearchBox/SearchBox';
 import ContactList from './components/ContactList/ContactList';
+import Loader from './components/Loader/Loader';
+import Error from './components/Error/Error';
+
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { error, loading, selectContacts } from './redux/selectors';
+import { fetchContacts } from './redux/contactsOps';
 
 import './App.css';
 
 function App() {
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
+  const isError = useSelector(error);
+  const isLoading = useSelector(loading);
+
+  useEffect(() => {
+    contacts === null && dispatch(fetchContacts());
+  }, []);
+
   return (
     <>
       <Section>
@@ -15,7 +31,8 @@ function App() {
           <ContactForm />
           <SearchBox />
         </div>
-
+        {isError && <Error />}
+        {isLoading && <Loader />}
         <ContactList />
       </Section>
     </>
