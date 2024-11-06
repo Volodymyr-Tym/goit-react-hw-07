@@ -53,7 +53,7 @@ const ContactForm = () => {
             className={styles.input}
             type="text"
             name="number"
-            placeholder="000-00-00"
+            placeholder="000-000-0000"
           ></Field>
 
           <ErrorMessage

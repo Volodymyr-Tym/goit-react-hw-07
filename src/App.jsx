@@ -7,20 +7,19 @@ import Error from './components/Error/Error';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { error, loading, selectContacts } from './redux/selectors';
+import { error, loading } from './redux/selectors';
 import { fetchContacts } from './redux/contactsOps';
 
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
   const isError = useSelector(error);
   const isLoading = useSelector(loading);
 
   useEffect(() => {
-    contacts === null && dispatch(fetchContacts());
-  }, []);
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <>

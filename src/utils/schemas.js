@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-const NumberRegex = /^\s*\d{3}-\d{2}-\d{2}\s*$/gm;
+const NumberRegex = /^\s*\d{3}-\d{3}-\d{4}\s*$/gm;
 
 export const AddContactSchema = Yup.object({
   name: Yup.string()
@@ -10,5 +10,5 @@ export const AddContactSchema = Yup.object({
 
   number: Yup.string()
     .required('Number is required')
-    .matches(NumberRegex, 'Required format: XXX-XX-XX'),
+    .matches(NumberRegex, 'Required format: XXX-XXX-XXXX'),
 });
